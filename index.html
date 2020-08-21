@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>FNVA anntation tool</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" /> <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link href="./fontawesome-free-5.14.0-web/css/all.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="style.css" type="text/css" /> -->
+
+    <script src="lib/fabric.min.js"></script>
+    
+
+</head>
+
+<body>
+
+    <div>
+
+        <button class="btn btn-primary" onclick="Parse()">HERE</button>
+
+    </div>
+
+
+
+    <div class="uk-section uk-section-default">
+
+        <div class="uk-text-center" uk-grid>
+
+            <div style="width: 50%; resize: horizontal; overflow: auto;">
+                <video id="video-player" poster="./poster.jpg" src="./MY_VIDEO.mp4"></video>
+
+                <progress id="js-progressbar" class="uk-progress" value="0" max="0"></progress>
+            </div>
+
+
+
+            <div>
+                ここにいろいろのコンテンツ
+
+            </div>
+
+            <div>
+                <link rel="stylesheet" href="./draggable.css" />
+                <div id="mydiv">
+                    <div id="mydivheader">Click here to move</div>
+                    <p id="detail">annotation...</p>
+                    <textarea id="input" class="uk-textarea"></textarea>
+                    <button onclick="Apply()" class="uk-button uk-button-primary">Apply</button>
+                </div>
+                <script type="text/javascript" src="./draggable.js"></script>
+
+            </div>
+
+            <div>
+                <button id="video-play" class="btn btn-primary"> <i class="fas fa-play-circle fa-2x"></i> </button>
+                <button id="video-pause" class="btn btn-primary"> <i class="fas fa-pause-circle fa-2x"></i> </button>
+                <button id="video-stop" class="btn btn-primary"> <i class="fas fa-stop-circle fa-2x"></i> </button>
+                <button id="video-fullscreen" class="btn btn-primary"> <i class="fas fa-expand-arrows-alt fa-2x"></i> </button>
+
+            </div>
+
+            <div>
+                <button class="btn btn-primary" onclick="In()"> <i class="fas fa-search-plus fa-2x"></i> </button>
+                <button class="btn btn-primary" onclick="Out()"> <i class="fas fa-search-minus fa-2x"></i> </button>
+                <button class="btn btn-primary" onclick="Upload()"> <i class="fas fa-cloud-upload-alt fa-2x"></i> </button>
+                <button class="btn btn-primary" onclick="Save()"> <i class="fas fa-cloud-download-alt fa-2x"></i> </button>
+
+                <input type="file" multiple id="hoge">
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section>
+        <div id="progress-wrap">
+            <div id="progress-out">
+                <div id="progress-in"></div>
+            </div>
+        </div>
+        <div id="controller-box">
+            <button id="video-select">File</button>
+            <input id="video-file" type="file" />
+        </div>
+    </section>
+
+
+    <style type="text/css">
+        #canvases {
+            width: 100%;
+            height: 500px;
+            overflow: scroll;
+            /* border: blue 5px solid; */
+        }
+    </style>
+
+
+
+    <section id="canvases" onscroll="myFunction()">
+
+        <!-- <div style="width: 100px;">
+            hello
+        </div> -->
+        <div>
+            <canvas id="canvas"></canvas>
+
+            <!-- <script src="lib/fabric.min.js"></script> -->
+            <!-- <script src="utils.js"></script>
+            <script src="timelines.js"></script> -->
+            <!-- <script src="script.js"></script> -->
+        </div>
+
+    </section>
+
+    
+    <script type="text/javascript" src="variables.js"></script>
+    <script src="utils.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script src="timelines.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
