@@ -42,14 +42,111 @@ const text = `<?xml version="1.0" encoding="UTF-8"?>
 </ANNOTATION_DOCUMENT>
 `;
 
-function ToDictionary( array, func1, func2 ) {
+let base = undefined;
 
-    const retult = array.reduce( (map, element) => {
-        map[ func1(element) ] = func2(element);
-        return map;
-    }, {} );
+window.onload = function () {
+    function reqListener () {
+        console.log(this.responseText);
+      }
+      
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "https://fumionihei.github.io/ELANUtils/base.eaf");
+      oReq.send();
+      console.log( oReq.responseText );
 
-    return retult;
+
+    var fileReader = new FileReader();
+
+    // fileReader.onload = function () {
+    //     // const json = JSON.parse( fileReader.result );
+    //     // console.log( json );
+
+    //     const txt = fileReader.result;
+    //     console.log( txt );
+    // }
+
+    // fileReader.readAsText( new Blob( "base.eaf" ) );
+};
+
+
+
+
+
+function Upload() {
+    console.log( "Upload" );
+
+    var element = document.getElementById( "upload_file" );
+    var file = element.files[0];
+    console.log( file );
+
+
+    var fileReader = new FileReader();
+
+    fileReader.onload = function () {
+        const json = JSON.parse( fileReader.result );
+    }
+
+    fileReader.readAsText( file );
+    
+}
+
+
+
+
+function Compare() {
+    const json = Upload();
+    // console.log( json );
+
+    return;
+
+    const base = Parse();
+    const compare = Parse();
+
+
+    const targetTiers = Intersect( base.TierNames, compare.TierNames );
+
+    console.log( targetTiers );
+
+    const targetTier = targetTiers[0];
+
+    const annotations1 = base.AnnotationsAt[ targetTier ];
+    const annotations2 = compare.AnnotationsAt[ targetTier ];
+
+    const closests = annotations1.map( annotation1 => {
+
+        let closestAnnotation = annotations2[0];
+        let closestDistance = Distance( annotation1, annotations2[0] );
+
+        for (const annotation2 of annotations2) {
+
+            const distance = Distance( annotation1, annotation2 );
+
+            closestAnnotation = closestDistance > distance ? annotation2 : closestAnnotation;
+            closestDistance = Math.min( closestDistance, distance );
+        }
+
+        return [ annotation1, closestAnnotation ];
+    } );
+
+
+
+    for (const test of closests) {
+
+        const target = test[0];
+        const closest = test[1];
+        const distance = Distance( target, closest );
+
+        console.log( `${target.ID} - ${closest.ID}: ${distance}` )
+        
+    }
+
+
+
+
+
+
+
 }
 
 
@@ -81,7 +178,8 @@ function Parse() {
             const end = annotation.getAttribute( "TIME_SLOT_REF2" );
             const content = annotation.getElementsByTagName( "ANNOTATION_VALUE" )[0].childNodes[0].nodeValue;
 
-            return [ID, timesAt[start], timesAt[end], content];
+            // return [ID, timesAt[start], timesAt[end], content];
+            return new Annotation( ID, timesAt[start], timesAt[end], content );
         } );
 
         return [ tierName, IDs ];
@@ -91,10 +189,9 @@ function Parse() {
     const annotationsAt = ToDictionary( annotations, (element) => element[0], (element) => element[1] );
 
 
+    // console.log( annotationsAt );
+    // console.log( tierNames );
 
-    // console.log( timesAt );
-    console.log( annotationsAt );
-    console.log( tierNames );
-
-
+    // return [tierNames, annotationsAt];
+    return new AnnotationContainer( tierNames, annotationsAt );
 }
