@@ -2,84 +2,51 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>FNVA anntation tool</title>
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" /> <!-- UIkit JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
+  <meta charset="UTF-8">
+  <title>FNVA anntation tool</title>
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" /> <!-- UIkit JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 
-    <!-- <link href="./fontawesome-free-5.14.0-web/css/all.css" rel="stylesheet"> -->
+  <!-- <link href="./fontawesome-free-5.14.0-web/css/all.css" rel="stylesheet"> -->
 
-    <!-- <link rel="stylesheet" href="style.css" type="text/css" /> -->
+  <!-- <link rel="stylesheet" href="style.css" type="text/css" /> -->
 
-    <!-- <script src="lib/fabric.min.js"></script> -->
+  <!-- <script src="lib/fabric.min.js"></script> -->
 
 
 </head>
 
-<body>
-
-    <button id="ajaxButton" type="button">要求を実行</button>
-
-<script>
-(function() {
-  var httpRequest;
-  document.getElementById("ajaxButton").addEventListener('click', makeRequest);
-
-  function makeRequest() {
-    httpRequest = new XMLHttpRequest();
-
-    if (!httpRequest) {
-      alert('中断 :( XMLHTTP インスタンスを生成できませんでした');
-      return false;
-    }
-    httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('GET', 'index.html');
-    httpRequest.send();
-  }
-
-  function alertContents() {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-      if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
-      } else {
-        alert('リクエストに問題が発生しました');
-      }
-    }
-  }
-})();
-</script>
 
 
+<div class="uk-section uk-section-muted">
+  <div class="uk-container">
 
-    <div class="uk-section uk-section-muted">
-        <div class="uk-container">
-    
-            <h3>Section Muted</h3>
-    
-            <form>
-                <div class="uk-margin" uk-margin>
-                    <div uk-form-custom="target: true">
-                        <input id="upload_file" type="file">
-                        <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
-                    </div>
-                </div>
-            </form>
+    <h3>Section Muted</h3>
 
-            <button class="uk-button uk-button-primary" onclick="Compare()">Submit</button>
-    
+    <form>
+      <div class="uk-margin" uk-margin>
+        <div uk-form-custom="target: true">
+          <input id="upload_file" type="file">
+          <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
         </div>
-    </div>
+      </div>
+    </form>
+
+    <button class="uk-button uk-button-primary" onclick="Upload()">Submit</button>
+
+  </div>
+</div>
 
 
-    
 
 
-    <!-- <div>
+
+<!-- <div>
 
         <button class="btn btn-primary" onclick="Compare()">HERE</button>
 
@@ -88,8 +55,8 @@
 
 
 
-    <script src="utils.js"></script>
-    <script src="scripts.js"></script>
+<script src="utils.js"></script>
+<script src="scripts.js"></script>
 
 </body>
 
