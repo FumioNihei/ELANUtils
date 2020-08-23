@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ELAN Comparator</title>
+
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" /> <!-- UIkit JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+
+
+  <h1 class="uk-heading-medium uk-heading-divider uk-padding uk-padding-remove-bottom">ファイル選択</h1>
+
+  <div class="uk-section uk-section-default uk-padding uk-text-center" uk-grid>
+
+    <div class="uk-width-3-4">
+      <form>
+        <div class="uk-margin" uk-margin>
+          <div class="uk-width-expand" uk-form-custom="target: true">
+            <input id="upload_file" type="file">
+            <input class="uk-input" type="text" placeholder="Select file" disabled>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="uk-width-1-4">
+      <button class="uk-button uk-button-primary uk-width-expand" onclick="Upload()">Submit</button>
+    </div>
+
+  </div>
+
+
+
+
+
+  <h1 class="uk-heading-medium uk-heading-divider uk-padding uk-padding-remove-bottom">概要</h1>
+
+  <div class="uk-section uk-section-default uk-padding">
+
+    <textarea id="summary" class="uk-textarea uk-height-medium" disabled></textarea>
+
+
+  </div>
+
+
+
+
+  <h1 class="uk-heading-medium uk-heading-divider uk-padding uk-padding-remove-bottom">詳細な比較</h1>
+
+  <div class="uk-section uk-section-default uk-padding">
+    <textarea id="detail"" class="uk-textarea uk-height-medium" disabled></textarea>
+  </div>
+
+
+  <script src="../utils/utils.js"></script>
+  <script src="../utils/annotation.js"></script>
+  <script src="scripts.js"></script>
+
+</body>
+
+</html>
