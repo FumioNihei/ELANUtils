@@ -48,6 +48,13 @@ class Annotation {
 }
 
 
+class ProjectFile {
+    project = undefined;
+    date = undefined;
+    tiers = undefined;
+}
+
+
 
 function Distance(annotation1, annotation2) {
 

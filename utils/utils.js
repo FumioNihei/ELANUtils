@@ -15,4 +15,18 @@ function Intersect(array1, array2) {
 }
 
 
+NowAsStr = () => Date.now().toString();
 
+
+function SaveTextAsFile( fileName, text ) {
+
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob( [text], {type: 'text/plain'}) );
+    a.download = fileName;
+
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+}
