@@ -27,11 +27,11 @@
 
   <div class="uk-section uk-section-default uk-padding uk-text-center" uk-grid>
 
-    <div class="uk-width-3-4">
+    <div class="uk-width-1-2">
       <form>
         <div class="uk-margin" uk-margin>
           <div class="uk-width-expand" uk-form-custom="target: true">
-            <input id="upload_file" type="file">
+            <input id="upload_file" type="file" multiple>
             <input class="uk-input" type="text" placeholder="Select file" disabled>
           </div>
         </div>
@@ -39,33 +39,23 @@
     </div>
 
     <div class="uk-width-1-4">
-      <button class="uk-button uk-button-primary uk-width-expand" onclick="Upload()">Submit</button>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="dest-format">
+            <option>select output format...</option>
+            <option>json</option>
+            <option>txt</option>
+            <option>eaf</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="uk-width-1-4">
+      <button class="uk-button uk-button-primary uk-width-expand" onclick="Upload()">Convert</button>
     </div>
 
   </div>
 
   <div class="uk-section uk-section-default uk-padding" uk-grid>
-
-    <div class="uk-width-1-2">
-      <div class="uk-form-controls">
-        <select class="uk-select" id="src-format">
-          <option>eaf</option>
-          <option>Option 02</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="uk-width-1-2">
-      <div class="uk-form-controls">
-        <select class="uk-select" id="dest-format">
-          <option>json</option>
-          <option>plain text</option>
-        </select>
-      </div>
-    </div>
-
-
-
 
     <div class="uk-width-1-2">
       <!-- <textarea id="src" class="uk-textarea uk-height-medium"></textarea> -->
@@ -86,27 +76,6 @@
 
   </div>
 
-
-
-
-
-  <!-- <h1 class="uk-heading-medium uk-heading-divider uk-padding uk-padding-remove-bottom">概要</h1>
-
-  <div class="uk-section uk-section-default uk-padding">
-
-    <textarea id="summary" class="uk-textarea uk-height-medium" disabled></textarea>
-
-
-  </div>
-
-
-
-
-  <h1 class="uk-heading-medium uk-heading-divider uk-padding uk-padding-remove-bottom">詳細な比較</h1>
-
-  <div class="uk-section uk-section-default uk-padding">
-    <textarea id="detail"" class="uk-textarea uk-height-medium" disabled></textarea>
-  </div> -->
 
 
   <script src="../utils/utils.js"></script>

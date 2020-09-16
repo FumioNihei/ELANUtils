@@ -3,24 +3,58 @@ const summary = document.getElementById( "src" );
 const detail = document.getElementById( "dest" );
 
 function AddSource( text ) {
-    // summary.value += `${text}\n`;
     summary.innerText += `${text}\n`;
-
 }
 
 function AddDest( text ) {
-    // detail.value += `${text}\n`;
     detail.innerText += `${text}\n`;
 }
 
+function ClearTextArea() {
+    summary.innerText = "";
+    detail.innerText = "";
+}
 
+var annotationFiles = [];
 
 function Upload() {
-    console.log( "Upload" );
+    const destFormat = document.getElementById( "dest-format" ).value;
 
-    var element = document.getElementById( "upload_file" );
-    var file = element.files[0];
-    console.log( file );
+    if( destFormat == "select output format..." ) {
+        alert( "select output format!!!" );
+        return;
+    }
+
+    console.log( "Upload" );
+    ClearTextArea();
+    annotationFiles = [];
+
+    // const element = document.getElementById( "upload_file" );
+    // const file = element.files[0];
+    // const extension = file.name.split( '.' )[1];
+    // console.log( file );
+
+
+    // var fileReader = new FileReader();
+
+    // fileReader.onload = function () {
+    //     const txt = fileReader.result;
+
+    //     Convert( txt, extension, destFormat );
+    // }
+
+    // fileReader.readAsText( file );
+
+
+
+    const element = document.getElementById( "upload_file" );
+    const files = element.files;
+    // const file = element.files[0];
+    // const extension = file.name.split( '.' )[1];
+
+    var fileName = files[0].name.split( '.' )[0];
+    var extension = files[0].name.split( '.' )[1];
+    console.log( files[0] );
 
 
     var fileReader = new FileReader();
@@ -28,66 +62,74 @@ function Upload() {
     fileReader.onload = function () {
         const txt = fileReader.result;
 
-        Convert( txt );
+        const result = Convert( txt, extension, destFormat );
+
+        // srcs.push( txt );
+        // dests.push( result );
+
+        annotationFiles.push( [ fileName, txt, result ] );
     }
 
-    fileReader.readAsText( file );
+    for (const file of files) {
+        fileName = file.name.split( '.' )[0];
+        extension = file.name.split( '.' )[1];
+        fileReader.readAsText( file );
+    }
+    
     
 }
 
 
-function ToJson( parsed ) {
 
-    const project = new ProjectFile();
-    project.project = "test";
-    project.date = NowAsStr();
-    project.tiers = parsed.AnnotationsAt;
 
-    const json = JSON.stringify( project, null, 2 );
+function ConvertFromEaf( eaf, dest_format ) {
 
-    return json;
+    const parsed = EafConverter.Parse( eaf );
 
+    if( dest_format == "json" ) return EafConverter.ToJson( parsed );
+    if( dest_format == "txt" ) return EafConverter.ToText( parsed );
+    if( dest_format == "eaf" ) return eaf;
+
+    return "Not Implemented...";
 }
 
+function Convert( input, src_format, dest_format ) {
 
-function ToText( parsed ) {
-
-    const tiers = parsed.TierNames;
-    const annotationsAt = parsed.AnnotationsAt;
-
-    return tiers.map( (tier) => {
-        console.log( annotationsAt[tier] );
-        return annotationsAt[tier].map( (annotation) => `${tier}: ${annotation}\n` );
-    } ).flat();
-
-}
-
-function Convert( eaf ) {
-
-    const srcFormat = document.getElementById( "src-format" ).value;
-    const destFormat = document.getElementById( "dest-format" ).value;
-
-    console.log( srcFormat );
-    console.log( destFormat );
-
-    const parsed = ParseEaf( eaf );
-
-    const result = ToJson( parsed );
-    // const result = ToText( parsed );
+    const result
+        = src_format == "eaf" ? ConvertFromEaf( input, dest_format )
+        : src_format == "txt" ? "Not Implemented..."
+        : src_format == "json" ? "Not Implemented..."
+        : "Not Implemented...";
 
 
-    AddSource( eaf );
+    AddSource( input );
     AddDest( result );
 
     hljs.initHighlighting.called = false;
+    // hljs.configure({
+    //     languages: dest_format
+    // });
     hljs.initHighlighting();
+
+    return result;
 
 }
 
 function Save() {
 
-    const text = detail.innerText;
-    const filename = "result.json";
+    // const text = detail.innerText;
+    // const filename = "result.json";
 
-    SaveTextAsFile( filename, text );
+    // SaveTextAsFile( filename, text );
+
+    const ext = document.getElementById( "dest-format" ).value;
+
+    for (const file of annotationFiles) {
+
+        const filename = `${file[0]}.${ext}`;
+        const text = file[2];
+
+        SaveTextAsFile( filename, text );
+        
+    }
 }
