@@ -16,15 +16,22 @@ let base = undefined;
 window.onload = function () {
 
     function reqListener() {
-        base = ParseEaf( this.responseText );
+        base = EafConverter.Parse( this.responseText );
         console.log( base );
         console.log( base.TierNames );
     }
 
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListener);
-    oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/base.eaf");
+    // oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/base.eaf");
+    oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/UtteranceSegmentation-training/A.eaf");
     oReq.send();
+
+
+    // oReq = new XMLHttpRequest();
+    // oReq.addEventListener("load", reqListener);
+    // oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/base.eaf");
+    // oReq.send();
 };
 
 
@@ -35,6 +42,7 @@ function Upload() {
     var element = document.getElementById( "upload_file" );
     var file = element.files[0];
     console.log( file );
+    console.log( file.name );
 
 
     var fileReader = new FileReader();
@@ -42,7 +50,7 @@ function Upload() {
     fileReader.onload = function () {
         const txt = fileReader.result;
 
-        const compare = ParseEaf( txt );
+        const compare = EafConverter.Parse( txt );
         console.log( compare );
         console.log( compare.TierNames );
 
