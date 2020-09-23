@@ -30,3 +30,7 @@ function SaveTextAsFile( fileName, text ) {
     document.body.removeChild(a);
 
 }
+
+function ZeroPadding( num, length ){
+    return ( '0000000000' + num ).slice( -length );
+}

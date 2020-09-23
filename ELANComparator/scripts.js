@@ -24,7 +24,8 @@ window.onload = function () {
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListener);
     // oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/base.eaf");
-    oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/UtteranceSegmentation-training/A.eaf");
+    // oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/UtteranceSegmentation-training/A.eaf");
+    oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/UtteranceSegmentation-training/B.eaf");
     oReq.send();
 
 
@@ -84,8 +85,8 @@ function Compare( base, compare ) {
         const annotations2 = compare.AnnotationsAt[targetTier];
 
         
-        AddSummary(`注釈数 (yours): ${annotations2.length}`);
-        AddSummary(`注釈数 (ours): ${annotations1.length}`);
+        AddSummary(`注釈数 (あなたのデータ): ${annotations2.length}`);
+        AddSummary(`注釈数 (正解): ${annotations1.length}`);
         
 
         const closestPairs = annotations1.map(annotation1 => {
@@ -111,21 +112,20 @@ function Compare( base, compare ) {
         const score = totalDistance / closestPairs.length;
 
         
-        AddSummary( `スコア: ${score}` );
+        AddSummary( `スコア: ${ score.toFixed(2) }` );
         totalScore += score;
 
 
 
-        AddDetail( `# 注釈層: ${targetTier}` );
-
+        AddDetail( `# --- 注釈層: ${targetTier} ---------` );
         for (const pair of closestPairs) {
 
             const target = pair[0];
             const closest = pair[1];
             const distance = Distance(target, closest);
 
-            // console.log(`${target} - ${closest}: ${distance}`);
-            AddDetail(`(${target}) - (${closest}), score: ${distance}`);
+            // AddDetail(`score: ${ZeroPadding( distance.toFixed(1), 6 )}, (${target.ToFormatString()}) - (${closest.ToFormatString()})`);
+            AddDetail(`distance: ${distance.toFixed(1)}, (${target.ToFormatString()}) - (${closest.ToFormatString()})`);
 
         }
 
@@ -134,6 +134,6 @@ function Compare( base, compare ) {
 
 
     AddSummary( `# 最終結果` );
-    AddSummary( `最終スコア: ${totalScore}` );
+    AddSummary( `最終スコア: ${totalScore.toFixed(2)}` );
 
 }

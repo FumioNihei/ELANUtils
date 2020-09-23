@@ -46,6 +46,25 @@ class Annotation {
         return `${this.ID},${this.Start},${this.End},${this.Contents}`;
     }
 
+
+
+    #ZeroPadding( num, length ){
+        return ( '0000000000' + num ).slice( -length );
+    }
+
+    #Format( time ) {
+        const mil = time % 1000;
+        const sec = parseInt(time / 1000) % 60;
+        const min = parseInt(time / (1000*60)) % 60;
+        return `${ this.#ZeroPadding(min, 2) }:${ this.#ZeroPadding(sec, 2) }.${ this.#ZeroPadding(mil, 3) }`;
+    }
+
+    ToFormatString() {
+        const start = this.#Format( this.Start );
+        const end = this.#Format( this.End );
+        return `${start},${end},${this.Contents}`;
+    }
+
 }
 
 
@@ -71,46 +90,6 @@ function Distance(annotation1, annotation2) {
 
 
 
-// function ParseEaf( eaf ) {
-
-//     const parser = new DOMParser();
-
-//     const document = parser.parseFromString( eaf, "text/xml" );
-
-
-
-//     const timeSlots = Array.from( document.getElementsByTagName("TIME_SLOT") );
-//     const times = timeSlots.map( (element) => [ element.getAttribute("TIME_SLOT_ID"), element.getAttribute("TIME_VALUE") ]  );
-    
-//     const timesAt = ToDictionary( times, (element) => element[0], (element) => parseInt(element[1]) );
-    
-
-
-//     const tiers = Array.from( document.getElementsByTagName("TIER") );
-//     const annotations = tiers.map( tier => {
-
-//         const tierName = tier.getAttribute( "TIER_ID" );
-//         const annotations = Array.from( tier.getElementsByTagName( "ALIGNABLE_ANNOTATION" ) );
-
-//         const IDs = annotations.map( annotation => {
-
-//             const ID = annotation.getAttribute( "ANNOTATION_ID" );
-//             const start = annotation.getAttribute( "TIME_SLOT_REF1" );
-//             const end = annotation.getAttribute( "TIME_SLOT_REF2" );
-//             const content = annotation.getElementsByTagName( "ANNOTATION_VALUE" )[0].childNodes[0].nodeValue;
-
-//             return new Annotation( ID, timesAt[start], timesAt[end], content );
-//         } );
-
-//         return [ tierName, IDs ];
-//     } );
-    
-//     const tierNames = tiers.map( tier => tier.getAttribute( "TIER_ID" ) );
-//     const annotationsAt = ToDictionary( annotations, (element) => element[0], (element) => element[1] );
-
-
-//     return new AnnotationContainer( tierNames, annotationsAt );
-// }
 
 
 class EafConverter {
@@ -140,7 +119,9 @@ class EafConverter {
                 const ID = annotation.getAttribute( "ANNOTATION_ID" );
                 const start = annotation.getAttribute( "TIME_SLOT_REF1" );
                 const end = annotation.getAttribute( "TIME_SLOT_REF2" );
-                const content = annotation.getElementsByTagName( "ANNOTATION_VALUE" )[0].childNodes[0].nodeValue;
+
+                const annotationNode = annotation.getElementsByTagName( "ANNOTATION_VALUE" )[0].childNodes;
+                const content = annotationNode.length > 0 ? annotationNode[0].nodeValue : "";
     
                 return new Annotation( ID, timesAt[start], timesAt[end], content );
             } );
