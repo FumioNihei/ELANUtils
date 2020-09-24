@@ -10,40 +10,76 @@ function AddDetail( text ) {
     detail.value += `${text}\n`;
 }
 
+function ClearTextArea() {
+    summary.value = "";
+    detail.value = "";
+}
 
-let base = undefined;
+// let base = undefined;
+let baseA = undefined;
+let baseB = undefined;
 
 window.onload = function () {
 
-    function reqListener() {
-        base = EafConverter.Parse( this.responseText );
-        console.log( base );
-        console.log( base.TierNames );
-    }
+    // function reqListener() {
+    //     base = EafConverter.Parse( this.responseText );
+    //     console.log( base );
+    //     console.log( base.TierNames );
+    // }
 
     var oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListener);
+    // oReq.addEventListener("load", reqListener);
+    oReq.onload = function() {
+        baseA = EafConverter.Parse( this.responseText );
+        console.log( baseA );
+        // console.log( baseA.TierNames );
+    };
+
     // oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/base.eaf");
-    // oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/UtteranceSegmentation-training/A.eaf");
-    oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/UtteranceSegmentation-training/B.eaf");
+    oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/UtteranceSegmentation-training/A.eaf");
     oReq.send();
 
 
-    // oReq = new XMLHttpRequest();
-    // oReq.addEventListener("load", reqListener);
-    // oReq.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/base.eaf");
-    // oReq.send();
+    let oReq2 = new XMLHttpRequest();
+    oReq2.onload = function() {
+        baseB = EafConverter.Parse( this.responseText );
+        console.log( baseB );
+    };
+    oReq2.open("GET", "https://fumionihei.github.io/ELANUtils/ELANComparator/UtteranceSegmentation-training/B.eaf");
+    oReq2.send();
 };
 
 
 
 function Upload() {
+    const modal = document.getElementById( "modal-example" );
+    const err = document.getElementById( "error-msg" );
+
     console.log( "Upload" );
+    ClearTextArea();
 
     var element = document.getElementById( "upload_file" );
     var file = element.files[0];
+
+    if( file === undefined ) {
+        err.innerText = "評価するファイルが選択されていません．まずは`Select file...`を押してください．";
+        UIkit.modal( modal ).show();
+        return;
+    }
+
     console.log( file );
     console.log( file.name );
+
+
+    const trainingFile = document.getElementById( "training-file" ).value;
+    const base = trainingFile == "A" ? baseA : baseB;
+
+    if( trainingFile == "select A or B..." ) {
+        err.innerText = "比較するファイルを選択してください．`select A or B...`を押してください．";
+        UIkit.modal( modal ).show();
+        return;
+    }
+    console.log( `${base} was chosen.` );
 
 
     var fileReader = new FileReader();

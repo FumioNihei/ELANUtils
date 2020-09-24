@@ -5,10 +5,14 @@
   <meta charset="UTF-8">
   <title>ELAN Comparator</title>
 
+
+
+
   <!-- UIkit CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" /> <!-- UIkit JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js"></script>
 
 
 </head>
@@ -22,7 +26,7 @@
 
   <div class="uk-section uk-section-default uk-padding uk-text-center" uk-grid>
 
-    <div class="uk-width-3-4">
+    <div class="uk-width-1-2">
       <form>
         <div class="uk-margin" uk-margin>
           <div class="uk-width-expand" uk-form-custom="target: true">
@@ -31,6 +35,16 @@
           </div>
         </div>
       </form>
+    </div>
+
+    <div class="uk-width-1-4">
+      <div class="uk-form-controls">
+        <select class="uk-select" id="training-file">
+          <option>select A or B...</option>
+          <option>A</option>
+          <option>B</option>
+        </select>
+      </div>
     </div>
 
     <div class="uk-width-1-4">
@@ -58,7 +72,22 @@
   <h1 class="uk-heading-medium uk-heading-divider uk-padding uk-padding-remove-bottom">詳細な比較</h1>
 
   <div class="uk-section uk-section-default uk-padding">
-    <textarea id="detail"" class="uk-textarea uk-height-medium" disabled></textarea>
+    <textarea id="detail"" class=" uk-textarea uk-height-medium" disabled></textarea>
+  </div>
+
+
+
+
+
+
+  <div id="modal-example" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+      <h2 class="uk-modal-title">手順を間違えています</h2>
+      <p id="error-msg"></p>
+      <p class="uk-text-right">
+        <button class="uk-button uk-button-primary uk-modal-close" type="button">戻る</button>
+      </p>
+    </div>
   </div>
 
 
