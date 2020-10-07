@@ -62,7 +62,8 @@ class Annotation {
     ToFormatString() {
         const start = this.#Format( this.Start );
         const end = this.#Format( this.End );
-        return `${start},${end},${this.Contents}`;
+        // return `${start},${end},${this.Contents}`;
+        return `${start};${end};${this.Contents}`;
     }
 
 }
