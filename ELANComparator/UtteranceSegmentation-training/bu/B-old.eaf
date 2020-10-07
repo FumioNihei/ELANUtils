@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ANNOTATION_DOCUMENT AUTHOR="" DATE="2020-09-17T14:46:39+09:00" FORMAT="3.0" VERSION="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
-        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:/__Private__/Desktop/UtteranceSegmentation-private/training-result/media/TP-S11.mp4" MIME_TYPE="video/mp4" RELATIVE_MEDIA_URL="./media/TP-S11.mp4"/>
-        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:/__Private__/Desktop/UtteranceSegmentation-private/training-result/media/TP-S11-A.wav" MIME_TYPE="audio/x-wav" RELATIVE_MEDIA_URL="./media/TP-S11-A.wav"/>
-        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:/__Private__/Desktop/UtteranceSegmentation-private/training-result/media/TP-S11-B.wav" MIME_TYPE="audio/x-wav" RELATIVE_MEDIA_URL="./media/TP-S11-B.wav"/>
-        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:/__Private__/Desktop/UtteranceSegmentation-private/training-result/media/TP-S11-C.wav" MIME_TYPE="audio/x-wav" RELATIVE_MEDIA_URL="./media/TP-S11-C.wav"/>
-        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:/__Private__/Desktop/UtteranceSegmentation-private/training-result/media/TP-S11-D.wav" MIME_TYPE="audio/x-wav" RELATIVE_MEDIA_URL="./media/TP-S11-D.wav"/>
+        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:\__Private__\Desktop\US-training\media/TP-S11.mp4" MIME_TYPE="video/mp4" />
+        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:\__Private__\Desktop\US-training\media/TP-S11-A.wav" MIME_TYPE="audio/x-wav" />
+        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:\__Private__\Desktop\US-training\media/TP-S11-B.wav" MIME_TYPE="audio/x-wav" />
+        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:\__Private__\Desktop\US-training\media/TP-S11-C.wav" MIME_TYPE="audio/x-wav" />
+        <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:\__Private__\Desktop\US-training\media/TP-S11-D.wav" MIME_TYPE="audio/x-wav" />
         <PROPERTY NAME="URN">urn:nl-mpi-tools-elan-eaf:06491047-fc5e-4b4a-91b0-4f627da3714f</PROPERTY>
         <PROPERTY NAME="lastUsedAnnotationId">82</PROPERTY>
     </HEADER>
@@ -176,27 +176,27 @@
     <TIER LINGUISTIC_TYPE_REF="default-lt" TIER_ID="TP-S11-D">
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a1" TIME_SLOT_REF1="ts5" TIME_SLOT_REF2="ts6">
-                <ANNOTATION_VALUE>そうですね</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>b/o/そうですね</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a2" TIME_SLOT_REF1="ts16" TIME_SLOT_REF2="ts19">
-                <ANNOTATION_VALUE>あとはあ 名所 名所</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>i/a/あとはあ 名所 名所</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a3" TIME_SLOT_REF1="ts20" TIME_SLOT_REF2="ts26">
-                <ANNOTATION_VALUE>うーん 名所というと微妙かも知れない 銀座とかだったらすごい</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>i/a/うーん 名所というと微妙かも知れない 銀座とかだったらすごい</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a4" TIME_SLOT_REF1="ts31" TIME_SLOT_REF2="ts34">
-                <ANNOTATION_VALUE>楽しめるかもしれない あそこはすごいブティックも多いし あとは</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>i/a/楽しめるかもしれない あそこはすごいブティックも多いし あとは</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a5" TIME_SLOT_REF1="ts35" TIME_SLOT_REF2="ts40">
-                <ANNOTATION_VALUE>ソニービルとかもあるので最先端もあそこは見れるという意味ではおもしろいかもしれない</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>i/a/ソニービルとかもあるので最先端もあそこは見れるという意味ではおもしろいかもしれない</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -248,12 +248,12 @@
     <TIER LINGUISTIC_TYPE_REF="default-lt" TIER_ID="TP-S11-C">
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a15" TIME_SLOT_REF1="ts1" TIME_SLOT_REF2="ts3">
-                <ANNOTATION_VALUE>東京駅の他</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>ei.s/q/東京駅の他</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a16" TIME_SLOT_REF1="ts8" TIME_SLOT_REF2="ts11">
-                <ANNOTATION_VALUE>こう考えると 東京近辺に住んでて東京の名所をあまり知らない</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>i/a/こう考えると 東京近辺に住んでて東京の名所をあまり知らない</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -263,7 +263,7 @@
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a18" TIME_SLOT_REF1="ts28" TIME_SLOT_REF2="ts32">
-                <ANNOTATION_VALUE>あー</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>o/o/あー</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -365,32 +365,32 @@
     <TIER LINGUISTIC_TYPE_REF="default-lt" TIER_ID="TP-S11-B">
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a38" TIME_SLOT_REF1="ts2" TIME_SLOT_REF2="ts4">
-                <ANNOTATION_VALUE>東京</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>o/o/東京</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a39" TIME_SLOT_REF1="ts7" TIME_SLOT_REF2="ts9">
-                <ANNOTATION_VALUE>ちな</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>f/o/ちな</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a40" TIME_SLOT_REF1="ts10" TIME_SLOT_REF2="ts12">
-                <ANNOTATION_VALUE>{笑}</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>o/o/{笑}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a41" TIME_SLOT_REF1="ts15" TIME_SLOT_REF2="ts21">
-                <ANNOTATION_VALUE>たしかに 灯台元暮らしっていうか</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>i/a/たしかに 灯台元暮らしっていうか</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a42" TIME_SLOT_REF1="ts24" TIME_SLOT_REF2="ts25">
-                <ANNOTATION_VALUE>以外に</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>o/o/以外に</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a43" TIME_SLOT_REF1="ts30" TIME_SLOT_REF2="ts33">
-                <ANNOTATION_VALUE>あー</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>o/o/あー</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
@@ -482,17 +482,17 @@
     <TIER LINGUISTIC_TYPE_REF="default-lt" TIER_ID="TP-S11-A">
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a61" TIME_SLOT_REF1="ts14" TIME_SLOT_REF2="ts17">
-                <ANNOTATION_VALUE>{笑}</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>o/o/{笑}</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a62" TIME_SLOT_REF1="ts22" TIME_SLOT_REF2="ts23">
-                <ANNOTATION_VALUE>うーん</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>o/o/うーん</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
             <ALIGNABLE_ANNOTATION ANNOTATION_ID="a63" TIME_SLOT_REF1="ts27" TIME_SLOT_REF2="ts29">
-                <ANNOTATION_VALUE>うーん</ANNOTATION_VALUE>
+                <ANNOTATION_VALUE>o/o/うーん</ANNOTATION_VALUE>
             </ALIGNABLE_ANNOTATION>
         </ANNOTATION>
         <ANNOTATION>
