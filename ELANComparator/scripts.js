@@ -161,7 +161,8 @@ function Compare( base, compare ) {
             const distance = Distance(target, closest);
 
             // AddDetail(`score: ${ZeroPadding( distance.toFixed(1), 6 )}, (${target.ToFormatString()}) - (${closest.ToFormatString()})`);
-            AddDetail(`distance: ${distance.toFixed(1)}, (${target.ToFormatString()}) - (${closest.ToFormatString()})`);
+            // AddDetail(`distance: ${distance.toFixed(1)}, (${target.ToFormatString()}) - (${closest.ToFormatString()})`);
+            AddDetail(`${distance.toFixed(1)},(${target.ToFormatString()}),(${closest.ToFormatString()})`);
 
         }
 
