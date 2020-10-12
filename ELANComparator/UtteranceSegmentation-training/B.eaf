@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ANNOTATION_DOCUMENT AUTHOR="" DATE="2020-10-12T17:50:04+09:00" FORMAT="3.0" VERSION="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
+<ANNOTATION_DOCUMENT AUTHOR="" DATE="2020-10-12T19:14:58+09:00" FORMAT="3.0" VERSION="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.mpi.nl/tools/elan/EAFv3.0.xsd">
     <HEADER MEDIA_FILE="" TIME_UNITS="milliseconds">
         <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:/__Private__/Desktop/UtteranceSegmentation-private/training-result/media/TP-S11.mp4" MIME_TYPE="video/mp4" RELATIVE_MEDIA_URL="./media/TP-S11.mp4"/>
         <MEDIA_DESCRIPTOR MEDIA_URL="file:///D:/__Private__/Desktop/UtteranceSegmentation-private/training-result/media/TP-S11-A.wav" MIME_TYPE="audio/x-wav" RELATIVE_MEDIA_URL="./media/TP-S11-A.wav"/>
@@ -96,7 +96,7 @@
         <TIME_SLOT TIME_SLOT_ID="ts84" TIME_VALUE="50325"/>
         <TIME_SLOT TIME_SLOT_ID="ts85" TIME_VALUE="51777"/>
         <TIME_SLOT TIME_SLOT_ID="ts86" TIME_VALUE="52037"/>
-        <TIME_SLOT TIME_SLOT_ID="ts87" TIME_VALUE="52392"/>
+        <TIME_SLOT TIME_SLOT_ID="ts87" TIME_VALUE="52613"/>
         <TIME_SLOT TIME_SLOT_ID="ts88" TIME_VALUE="53044"/>
         <TIME_SLOT TIME_SLOT_ID="ts89" TIME_VALUE="53447"/>
         <TIME_SLOT TIME_SLOT_ID="ts90" TIME_VALUE="53447"/>
